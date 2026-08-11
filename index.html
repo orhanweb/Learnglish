@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta
+      name="description"
+      content="Master English vocabulary with brain-science-based learning. Active recall and spaced repetition for lasting results."
+    />
+    <meta name="theme-color" content="#8B5CF6" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+    <title>Learnglish – English Vocabulary with Spaced Repetition</title>
+
+    <link rel="icon" type="image/svg+xml" href="logo.svg" />
+    <link rel="apple-touch-icon" href="logo.svg" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Learnglish – English Vocabulary" />
+    <meta property="og:description" content="Master English vocabulary with active recall and spaced repetition." />
+  </head>
+  <body>
+    <!--
+      GH Pages SPA restore: 404.html rewrites deep links into "/<base>/?/path&query"
+      so they survive the redirect; this script reverses the encoding before React
+      Router sees the URL. Must run before the bundle.
+    -->
+    <script>
+      (function () {
+        var l = window.location;
+        if (l.search[1] === '/') {
+          var decoded = l.search
+            .slice(1)
+            .split('&')
+            .map(function (s) {
+              return s.replace(/~and~/g, '&');
+            })
+            .join('?');
+          window.history.replaceState(null, '', l.pathname.slice(0, -1) + decoded + l.hash);
+        }
+      })();
+    </script>
+    <div id="root"></div>
+    <noscript>
+      <p style="padding: 2rem; text-align: center; font-family: system-ui, sans-serif">
+        Learnglish requires JavaScript. Please enable it to continue.
+      </p>
+    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
