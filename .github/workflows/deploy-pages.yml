@@ -44,6 +44,13 @@ jobs:
       - name: Build application
         run: npm run build
 
+      - name: Write release metadata
+        run: >-
+          node --input-type=module -e
+          "import { writeFileSync } from 'node:fs';
+          writeFileSync('dist/release.json', JSON.stringify({ commitSha: process.env.GITHUB_SHA,
+          workflowRunId: process.env.GITHUB_RUN_ID }, null, 2) + '\n');"
+
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:
